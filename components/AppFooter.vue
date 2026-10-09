@@ -36,14 +36,14 @@ const links = [['#what', '#what', '#what'], ['#studio', '#work', '#contact']]
 .foot {
   position: relative;
   background: #000;
-  padding: 150px 0 72px;
+  padding: clamp(72px, 8vw, 110px) 0 56px;
 }
 .wave {
   position: absolute;
   top: -1px;
   left: 0;
   width: 100%;
-  height: clamp(70px, 9vw, 140px);
+  height: clamp(32px, 4vw, 64px);
 }
 .mark {
   margin-top: 56px;
