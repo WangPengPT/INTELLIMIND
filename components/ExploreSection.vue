@@ -3,7 +3,8 @@ const t = useContent()
 </script>
 
 <template>
-  <section id="what" class="section">
+  <section id="what" class="section explore">
+    <WaveDivider />
     <div class="wrap">
       <div v-reveal class="head">
         <h2 class="h2">{{ t.explore.title }}</h2>
@@ -51,9 +52,14 @@ const t = useContent()
 }
 .media {
   aspect-ratio: 16 / 10;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  border-radius: 14px;
+}
+.media :deep(svg) {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.row:hover .media :deep(svg) {
+  transform: scale(1.05);
 }
 .info {
   display: grid;
@@ -84,5 +90,15 @@ h3 {
   .row.flip .media {
     order: 0;
   }
+}
+</style>
+
+<style scoped>
+.explore {
+  position: relative;
+  margin-top: 0;
+  z-index: 2;
+  padding-top: clamp(80px, 11vw, 150px);
+  background: #1c1c1c;
 }
 </style>

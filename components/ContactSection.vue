@@ -4,7 +4,7 @@ const form = reactive({ name: '', email: '', message: '' })
 
 // No backend yet: hand the message to the visitor's mail client.
 const submit = () => {
-  const subject = encodeURIComponent(`Hello from ${form.name}`)
+  const subject = encodeURIComponent(`${t.value.contact.subject} ${form.name}`)
   const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
   window.location.href = `mailto:hello@intellimind.pt?subject=${subject}&body=${body}`
 }

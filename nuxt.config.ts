@@ -13,6 +13,9 @@ export default defineNuxtConfig({
           content:
             'INTELLIMIND is a Portuguese studio crafting games, web applications and AI tools with warmth, curiosity and a taste for the horizon.'
         },
+        { property: 'og:title', content: 'INTELLIMIND — Games, Web Apps & AI Tools from Portugal' },
+        { property: 'og:description', content: 'A Portuguese studio creating games, web apps and AI tools that feel timeless, warm and human.' },
+        { property: 'og:type', content: 'website' },
         { name: 'theme-color', content: '#232323' }
       ],
       link: [
