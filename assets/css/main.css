@@ -1,0 +1,135 @@
+:root {
+  --bg: #232323;
+  --bg-2: #2c2c2c;
+  --black: #000;
+  --text: #f4f4f4;
+  --muted: #b4b4b4;
+  --blue: #86b4ea; /* azulejo blue, used for highlights */
+  --azul: #2f6fcf;
+  --gold: #f2b632;
+  --terracotta: #d9633b;
+  --font: 'Outfit', system-ui, sans-serif;
+  --wrap: 1280px;
+  /* azulejo tile — only used as artwork, never as a border */
+  --azulejo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%231d4f9f'/%3E%3Cg fill='%23f4f1e8'%3E%3Cg id='p'%3E%3Cpath d='M40 8 Q47 26 40 38 Q33 26 40 8Z'/%3E%3C/g%3E%3Cuse href='%23p' transform='rotate(90 40 40)'/%3E%3Cuse href='%23p' transform='rotate(180 40 40)'/%3E%3Cuse href='%23p' transform='rotate(270 40 40)'/%3E%3Ccircle cx='40' cy='40' r='5' fill='%23f2b632'/%3E%3Cpath d='M0 0 H14 A14 14 0 0 1 0 14Z'/%3E%3Cpath d='M80 0 V14 A14 14 0 0 1 66 0Z'/%3E%3Cpath d='M0 80 V66 A14 14 0 0 1 14 80Z'/%3E%3Cpath d='M80 80 H66 A14 14 0 0 1 80 66Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  width: min(var(--wrap), 100% - 64px);
+  margin-inline: auto;
+}
+
+.section {
+  padding: clamp(64px, 9vw, 130px) 0;
+}
+
+.h2 {
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 500;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+/* pill buttons, as on the reference site */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 26px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: transparent;
+  color: #fff;
+  font: 600 0.95rem var(--font);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.pill:hover {
+  background: #fff;
+  color: #111;
+}
+.pill.solid {
+  background: #eee;
+  border-color: #eee;
+  color: #111;
+}
+.pill.solid:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
